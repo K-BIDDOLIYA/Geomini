@@ -1,4 +1,4 @@
-# Tiny3D 🧊
+# Geomini
 
 A lightweight 3D shape viewer built with HTML, CSS, and JavaScript.
 
