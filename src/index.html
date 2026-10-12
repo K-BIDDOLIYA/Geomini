@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geomini</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f5f7;
+            color: #222;;
+            text-align: center;
+            margin: 0;
+            padding: 25px;
+        }
+
+        hi { margin-bottom: 5px; }
+        p { color: #666;}
+
+        #viewer {
+            height: 350px;
+            max-width: 600px;
+            margin: 25px auto;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 700px;
+            cursor: grab;
+            overflow: hidden;
+        }
+
+        #shape {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(-20deg) rotateY(30deg);
+        }
+
+        .face {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #4398f5;
+            border: 1px solid #333;
+            box-sizing: border-box;
+        }
+
+        .front { transform: translateZ(60px);}
+        .back { transform: rotateY(180deg) translateZ(60px);}
+        .right { transform: rotateY(90deg) translateZ(60px);}
+        .left { transform: rotateY(-90deg) translateZ(60px);}
+        .top { transform: rotateX(90deg) translateZ(60px);}
+        .bottom { transform: rotateX(-90deg) translateZ(60px);}
+
+        button {
+            padding: 10px 15px;
+            margin: 4px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover { background: #e7f1ff; }
+
+        button.selected {
+            background: #4398f5;
+            color: white;
+        }
+
+        #controls { max-width: 600px; margin: auto; }
+
+        #hint {font-size: 13px; color: #999; margin-top: 10px;}
+    </style>
+</head>
+
+<body>
+
+    <h1>Tiny3D</h1>
+    <p>A tiny 3D shape viewer</p>
+
+    <div id="controls">
+        <button class="selected" onclick="changeShape('Cube',this)">Cube</button>
+        <button onclick="changeShape('Sphere',this)">Sphere</button>
+        <button onclick="changeShape('Cylinder',this)">Cylinder</button>
+        <button onclick="changeShape('Cone',this)">Cone</button>
+        <button onclick="changeShape('Pyramid',this)">Pyramid</button>
+    </div>
+
+    <div id="viewer">
+        <div id="shape">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+        </div>
+    </div>
+
+    <button onclick="resetRotation()">Reset rotation</button>
+    <p id="hint">Drag the shape to rotate it.</p>
+
+</body>
+</html>
