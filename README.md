@@ -11,8 +11,8 @@ A lightweight 3D shape viewer built with HTML, CSS, and JavaScript.
 
 ### Built With
 - HTML
-- CSS
-- JavaScript Canvas API
+- CSS 3D Transforms
+- JavaScript
 
 ### Run
 Open `index.html` in your browser and explore 3D shapes!
